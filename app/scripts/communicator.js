@@ -17,6 +17,16 @@ function( Backbone ) {
 
 			// create commands
 			this.command = new Backbone.Wreqr.Commands();
+
+			this.mediator.on('all', this.logMediatorEvents, this);
+		},
+
+		logMediatorEvents: function(eventName, options) {
+			if(_.isEmpty(options) || _.isObject(options)) {
+				console.log(eventName);
+			} else {
+				console.log(eventName, options);
+			}
 		}
 	});
 
