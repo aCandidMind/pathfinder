@@ -1,23 +1,31 @@
 define([
 	'backbone',
 	'communicator',
-	'hbs!tmpl/welcome'
+	'layouts/pathfinderLayout',
+	'hbs!tmpl/main'
 ],
 
-function( Backbone, Communicator, Welcome_tmpl ) {
+function( Backbone, Communicator, PathfinderApp, Main_tmpl ) {
     'use strict';
 
-	var welcomeTmpl = Welcome_tmpl;
+	var mainTmpl = Main_tmpl;
 
 	var App = new Backbone.Marionette.Application();
 
 	/* Add application regions here */
-	App.addRegions({});
+	App.addRegions({
+		pathfinder: "#pathfinder-app"
+	});
+
+	App.PathfinderApp = new PathfinderApp();
 
 	/* Add initializers here */
 	App.addInitializer( function () {
-		document.body.innerHTML = welcomeTmpl({ success: "CONGRATS!" });
+		document.body.innerHTML = mainTmpl();
 		Communicator.mediator.trigger("APP:START");
+
+		App.pathfinder.show(App.PathfinderApp);
+		App.PathfinderApp.start();
 	});
 
 	return App;
