@@ -1,0 +1,41 @@
+{
+  "labels": [
+    "Vor-Ort",
+    "Beratung",
+    "Code-Power",
+    "Contacts",
+    "Raise Awareness",
+    "Feedback",
+    "Ideation",
+    "Rezepte",
+    "Realisation",
+    "Project Management",
+    "Permanente Begleitung"
+  ],
+  "questions": [
+    {
+      "text": "Hast Du eine Idee, weißt aber noch nicht genau, wie Du sie umsetzen kannst?",
+      "labels": [1, 3, 5, 6, 7, 8]
+    },
+    {
+      "text": "Suchst Du neue Kontakte für die Realisierung Deiner Idee/Projekt?",
+      "labels": [3, 8, 2, 1, 7, 9, 10]
+    },
+    {
+      "text": "Brauchst Du Energie von Menschen vor Ort (Offline)?",
+      "labels": [0, 5, 1, 6]
+    },
+    {
+      "text": "Möchtest Du Deine aktuelle Idee einem Raum voller Menschen vorstellen?",
+      "labels": [0, 5, 6]
+    },
+    {
+      "text": "Brauchst Du Feedback von potentiellen Kunden oder Nutzniessern?",
+      "labels": [5, 3]
+    },
+    {
+      "text": "Möchtest Du neue Perspektiven auf deine Fragestellung gewinnen?",
+      "labels": [5]
+    }
+  ]
+}
