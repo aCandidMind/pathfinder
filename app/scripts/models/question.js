@@ -13,12 +13,9 @@ function( Backbone, Labels, _ ) {
 	/* Return a model class definition */
 	return Backbone.Model.extend({
 
-		text: null,
-		labels: null,
-
-		initialize: function (text, labels) {
-			this.text = text;
-			this.labels = new Labels(labels);
+		parse: function (data, options) {
+			var labels = new Labels(null, {ids: data.labels});
+			return _.extend(data, {labels: labels});
 		}
 	});
 });

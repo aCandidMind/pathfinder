@@ -3,19 +3,20 @@ define([
 	'backbone',
 	'communicator',
 	'collections/labels',
+	'collections/questions',
 	'views/projectsView',
-	'views/questionView',
+	'views/questionsView',
 	'hbs!tmpl/pathfinder_app'
 ],
 
-function( $, Backbone, Communicator, Labels, ProjectsView, QuestionView, Pathfinder_tmpl ) {
+function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsView, Pathfinder_tmpl ) {
 	return Backbone.Marionette.Layout.extend({
 		template: Pathfinder_tmpl,
 		id: "pathfinder-app",
 
 		regions: {
 			projects: "#projects-region",
-			question: "#question-region"
+			questions: "#questions-region"
 		},
 
 		onShow: function() {
@@ -26,20 +27,19 @@ function( $, Backbone, Communicator, Labels, ProjectsView, QuestionView, Pathfin
 			// publish
 			Communicator.mediator.trigger("PATHFINDER:START");
 
-			$.getJSON("questions.json", function (data) {
-				Labels.prototype.json = data;
-				Communicator.mediator.trigger(Labels.prototype.json);
-				var labels = new Labels([], {ids: [1, 3, 5]});
-				Communicator.mediator.trigger(labels.models);
-				Communicator.mediator.trigger(labels.length);
-				Communicator.mediator.trigger(labels.pluck('name'));
-			});
+			// get JSON & initialize QuestionsView with it
+			$.when($.getJSON("questions.json")).done(_.bind(this.loadQuestions, this));
 
 			this.projectsView = new ProjectsView();
 			this.projects.show(this.projectsView);
+		},
 
-			this.questionView = new QuestionView();
-			this.question.show(this.questionView);
+		loadQuestions: function (data) {
+			Labels.prototype.json = data;
+			var questions = new Questions(null, {data: data});
+
+			this.questionsView = new QuestionsView({collection: questions});
+			this.questions.show(this.questionsView);
 		}
 	});
 });

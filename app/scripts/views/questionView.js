@@ -6,10 +6,12 @@ define([
 function( Backbone, Communicator, Question_tmpl ){
     'use strict';
 
-	return Backbone.Marionette.View.extend({
+	return Backbone.Marionette.ItemView.extend({
+
+		template: Question_tmpl,
 
 		onShow: function() {
-			this.el.innerHTML = Question_tmpl();
+			console.log('model:', this.model.toJSON());
 		}
 	});
 });
