@@ -1,12 +1,12 @@
 define([
 	'backbone',
 	'communicator',
-	'views/questionView'
+	'views/questionLayout'
 ],
-function( Backbone, Communicator, QuestionView ){
+function( Backbone, Communicator, QuestionLayout ){
     'use strict';
 
 	return Backbone.Marionette.CollectionView.extend({
-		itemView: QuestionView
+		itemView: QuestionLayout
 	});
 });

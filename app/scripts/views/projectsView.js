@@ -1,23 +1,13 @@
 define([
 	'backbone',
 	'communicator',
-	'underscore',
-	'collections/projects',
-	'models/project',
-	'hbs!tmpl/projects'
+	'views/projectView'
 ],
-function( Backbone, Communicator, _, Projects, Project, Projects_tmpl ){
+function( Backbone, Communicator, ProjectView ){
 	'use strict';
 
-	return Backbone.View.extend({
-
-		initialize: function() {
-			this.collection = new Projects();
-		},
-
-		onShow: function() {
-			this.el.innerHTML = Projects_tmpl();
-		}
-
+	return Backbone.Marionette.CollectionView.extend({
+		itemView: ProjectView,
+		tagName: 'ul'
 	});
 });

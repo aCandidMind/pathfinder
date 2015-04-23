@@ -1,12 +1,13 @@
 define([
 	'backbone',
 	'communicator',
-	'hbs!tmpl/question'
+	'hbs!tmpl/project'
 ],
-function( Backbone, Communicator, Question_tmpl ){
+function( Backbone, Communicator, Project_tmpl ){
     'use strict';
 
 	return Backbone.Marionette.ItemView.extend({
-		template: Question_tmpl
+		template: Project_tmpl,
+		tagName: 'li'
 	});
 });

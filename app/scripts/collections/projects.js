@@ -4,13 +4,28 @@
 
 define([
 	'backbone',
+	'communicator',
 	'models/project'
 ],
-function( Backbone, Project ) {
+function( Backbone, Communicator, Project ) {
     'use strict';
 
 	/* Return a collection class definition */
 	return Backbone.Collection.extend({
-		model: Project
+		model: Project,
+
+		initialize: function(models, options) {
+			var jsonData = Communicator.reqres.request('jsonData');
+			if (!_.isEmpty(options.fromLabels)) {
+				var projects = [];
+				_.each(jsonData.projects, function (attrs) {
+					var labelIntersection = _.intersection(attrs.labels, options.fromLabels);
+					if (!_.isEmpty(labelIntersection)) {
+						projects.push(new Project(attrs));
+					}
+				});
+				this.reset(projects, {silent: true});
+			}
+		}
 	});
 });
