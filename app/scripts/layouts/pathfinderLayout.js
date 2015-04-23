@@ -36,7 +36,6 @@ function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsV
 		},
 
 		loadQuestions: function (data) {
-			Labels.prototype.json = data;
 			this.jsonData = data;
 			var questions = new Questions(null, {data: data});
 

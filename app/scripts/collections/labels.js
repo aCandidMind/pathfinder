@@ -4,23 +4,23 @@
 
 define([
 	'backbone',
+	'communicator',
 	'models/label'
 ],
-function( Backbone, Label ) {
+function( Backbone, Communicator, Label ) {
     'use strict';
 
 	/* Return a collection class definition */
 	return Backbone.Collection.extend({
 		model: Label,
-		json: null,
 
 		initialize: function(models, options) {
-			var jsonLabels = this.json.labels;
+			var jsonLabels = Communicator.reqres.request('jsonData').labels;
 			var labels = [];
 			if (!_.isEmpty(options.ids)) {
 				_.each(options.ids, function (id) {
 					var name = jsonLabels[id];
-					labels.push(new Label({name: name}));
+					labels.push(new Label({id: id, name: name}));
 				});
 				this.reset(labels, {silent: true});
 			}

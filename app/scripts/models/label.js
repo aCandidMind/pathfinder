@@ -11,11 +11,9 @@ function( Backbone, _ ) {
 
 	/* Return a model class definition */
 	return Backbone.Model.extend({
-
-		name: null,
-
-		initialize: function(name) {
-			this.name = name;
+		defaults: {
+			id: null,
+			name: null
 		}
 	});
 });
