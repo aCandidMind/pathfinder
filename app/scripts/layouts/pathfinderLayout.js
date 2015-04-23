@@ -29,6 +29,7 @@ function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsV
 
 			// get JSON & initialize QuestionsView with it
 			$.when($.getJSON("questions.json")).done(_.bind(this.loadQuestions, this));
+			Communicator.reqres.setHandler("jsonData", _.bind(this.getJSONData, this));
 
 			this.projectsView = new ProjectsView();
 			this.projects.show(this.projectsView);
@@ -36,10 +37,15 @@ function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsV
 
 		loadQuestions: function (data) {
 			Labels.prototype.json = data;
+			this.jsonData = data;
 			var questions = new Questions(null, {data: data});
 
 			this.questionsView = new QuestionsView({collection: questions});
 			this.questions.show(this.questionsView);
+		},
+
+		getJSONData: function () {
+			return this.jsonData;
 		}
 	});
 });
