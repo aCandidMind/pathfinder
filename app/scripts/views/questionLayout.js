@@ -9,7 +9,7 @@ define([
 function( Backbone, Communicator, Projects, ProjectsView, QuestionView, Questions_tmpl ){
     'use strict';
 
-	return Backbone.Marionette.Layout.extend({
+	return Backbone.Marionette.LayoutView.extend({
 
 		template: Questions_tmpl,
 		className: "question-container row-fluid",

@@ -7,7 +7,7 @@ function( Backbone, Communicator, ProjectView ){
 	'use strict';
 
 	return Backbone.Marionette.CollectionView.extend({
-		itemView: ProjectView,
+		childView: ProjectView,
 		tagName: 'ul',
 		className: 'inline'
 	});

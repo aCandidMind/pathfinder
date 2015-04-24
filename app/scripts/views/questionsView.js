@@ -7,7 +7,7 @@ function( Backbone, Communicator, QuestionLayout ){
     'use strict';
 
 	return Backbone.Marionette.CollectionView.extend({
-		itemView: QuestionLayout,
+		childView: QuestionLayout,
 		className: 'container-fluid',
 
 		initialize: function() {

@@ -10,9 +10,8 @@ define([
 ],
 
 function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsView, Pathfinder_tmpl ) {
-	return Backbone.Marionette.Layout.extend({
+	return Backbone.Marionette.LayoutView.extend({
 		template: Pathfinder_tmpl,
-		id: "pathfinder-app",
 
 		regions: {
 			projects: "#projects-region",
