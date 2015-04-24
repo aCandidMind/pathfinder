@@ -1,5 +1,6 @@
 {
   "name": "projecty-pathfinder",
+  "repository": "https://github.com/aCandidMind/pathfinder",
   "version": "0.0.1",
   "dependencies": {
     "express": "~3.2.4",
