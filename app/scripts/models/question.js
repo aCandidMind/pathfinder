@@ -13,6 +13,12 @@ function( Backbone, Labels, _ ) {
 	/* Return a model class definition */
 	return Backbone.Model.extend({
 
+		defaults: {
+			text: null,
+			labels: [],
+			active: false
+		},
+
 		parse: function (data, options) {
 			var labels = new Labels(null, {ids: data.labels});
 			return _.extend(data, {labels: labels});

@@ -19,6 +19,16 @@ function( Backbone, Communicator, Projects, ProjectsView, QuestionView, Question
 			question: ".question"
 		},
 
+		triggers: {
+			"click .answer button": "question:answered"
+		},
+
+		initialize: function() {
+			this.on('question:answered', function(args) {
+				Communicator.trigger('question:answered', args.model);
+			});
+		},
+
 		onShow: function() {
 			var labels = this.model.get('labels').pluck('id');
 			var projects = new Projects(null, {fromLabels: labels});

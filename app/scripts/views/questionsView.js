@@ -8,6 +8,17 @@ function( Backbone, Communicator, QuestionLayout ){
 
 	return Backbone.Marionette.CollectionView.extend({
 		itemView: QuestionLayout,
-		className: 'container-fluid'
+		className: 'container-fluid',
+
+		initialize: function() {
+			Communicator.on('question:answered', _.bind(this.onQuestionAnswered, this));
+		},
+
+		onQuestionAnswered: function(question) {
+			var index = this.collection.indexOf(question);
+			var nextQuestion = this.collection.at(index + 1);
+			nextQuestion.set('active', true);
+			this.render();
+		}
 	});
 });
