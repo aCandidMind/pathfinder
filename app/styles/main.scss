@@ -6,13 +6,20 @@
 
 #questions-region {
   .question-container {
-
-    .projects li img {
-      display: block;
-    }
+    margin-bottom: 50px;
 
     .question {
+      padding: 16px 0;
+    }
 
+    .projects {
+      .thumbnails {
+        padding: 0;
+      }
+
+      h3 {
+        font-size: $baseFontSize * 1.05;
+      }
     }
   }
 }
