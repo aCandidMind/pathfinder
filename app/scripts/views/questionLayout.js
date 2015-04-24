@@ -12,6 +12,7 @@ function( Backbone, Communicator, Projects, ProjectsView, QuestionView, Question
 	return Backbone.Marionette.Layout.extend({
 
 		template: Questions_tmpl,
+		className: "question-container row-fluid",
 
 		regions: {
 			projects: ".projects",
