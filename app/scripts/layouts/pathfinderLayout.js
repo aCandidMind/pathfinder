@@ -38,6 +38,9 @@ function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsV
 			this.jsonData = data;
 			var questions = new Questions(null, {data: data});
 
+			// activate (make visible) the first question
+			questions.at(0).set('active', true);
+
 			this.questionsView = new QuestionsView({collection: questions});
 			this.questions.show(this.questionsView);
 		},

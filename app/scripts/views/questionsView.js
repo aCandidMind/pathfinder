@@ -14,6 +14,11 @@ function( Backbone, Communicator, QuestionLayout ){
 			Communicator.on('question:answered', _.bind(this.onQuestionAnswered, this));
 		},
 
+		// Only show views whose question is active
+		filter: function (child, index, collection) {
+			return child.get('active');
+		},
+
 		onQuestionAnswered: function(question) {
 			var index = this.collection.indexOf(question);
 			var nextQuestion = this.collection.at(index + 1);
