@@ -8,6 +8,7 @@ function( Backbone, Communicator, ProjectView ){
 
 	return Backbone.Marionette.CollectionView.extend({
 		itemView: ProjectView,
-		tagName: 'ul'
+		tagName: 'ul',
+		className: 'thumbnails'
 	});
 });

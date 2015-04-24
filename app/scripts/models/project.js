@@ -5,7 +5,8 @@
 define([
 	'backbone',
 	'underscore',
-	'collections/labels'
+	'collections/labels',
+	'holderjs'
 ],
 function( Backbone, Labels, _ ) {
     'use strict';
@@ -15,7 +16,8 @@ function( Backbone, Labels, _ ) {
 
 		defaults: {
 			name: null,
-			logo: null
+			logo: "holder.js/96x96",
+			link: '#'
 		},
 
 		parse: function (data, options) {
