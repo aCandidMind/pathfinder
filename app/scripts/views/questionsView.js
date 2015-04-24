@@ -1,9 +1,10 @@
 define([
 	'backbone',
 	'communicator',
-	'views/questionLayout'
+	'views/questionLayout',
+	'holderjs'
 ],
-function( Backbone, Communicator, QuestionLayout ){
+function( Backbone, Communicator, QuestionLayout, Holder ){
     'use strict';
 
 	return Backbone.Marionette.CollectionView.extend({
@@ -24,6 +25,10 @@ function( Backbone, Communicator, QuestionLayout ){
 			var nextQuestion = this.collection.at(index + 1);
 			nextQuestion.set('active', true);
 			this.render();
+		},
+
+		onRender: function() {
+			Holder.run();
 		}
 	});
 });
