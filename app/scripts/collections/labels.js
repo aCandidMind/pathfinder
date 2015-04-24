@@ -16,8 +16,8 @@ function( Backbone, Communicator, Label ) {
 
 		initialize: function(models, options) {
 			var jsonLabels = Communicator.reqres.request('jsonData').labels;
-			var labels = [];
 			if (!_.isEmpty(options.ids)) {
+				var labels = [];
 				_.each(options.ids, function (id) {
 					var name = jsonLabels[id];
 					labels.push(new Label({id: id, name: name}));
