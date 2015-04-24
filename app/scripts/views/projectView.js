@@ -8,7 +8,6 @@ function( Backbone, Communicator, Project_tmpl ){
 
 	return Backbone.Marionette.ItemView.extend({
 		template: Project_tmpl,
-		tagName: 'li',
-		className: 'span3'
+		tagName: 'li'
 	});
 });

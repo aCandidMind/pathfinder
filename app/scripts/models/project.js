@@ -16,7 +16,7 @@ function( Backbone, Labels, _ ) {
 
 		defaults: {
 			name: null,
-			logo: "holder.js/96x96",
+			logo: "holder.js/102x102",
 			link: '#'
 		},
 

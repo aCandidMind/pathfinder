@@ -1,3 +1,4 @@
+@import 'sass-bootstrap/lib/bootstrap';
 @import 'sass-bootstrap/lib/responsive';
 
 #main {
@@ -13,8 +14,10 @@
     }
 
     .projects {
-      .thumbnails {
-        padding: 0;
+      li {
+        width: 106px;
+        padding: 0 4px 0 0;
+        float: left;
       }
 
       h3 {
