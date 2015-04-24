@@ -18,7 +18,9 @@
       }
 
       h3 {
-        font-size: $baseFontSize * 1.05;
+        font-size: $baseFontSize * 0.95;
+        line-height: normal;
+        font-family: 'Open Sans Condensed', sans-serif;
       }
     }
   }
