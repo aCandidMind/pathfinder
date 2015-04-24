@@ -28,7 +28,7 @@ function( $, Backbone, Communicator, Labels, Questions, ProjectsView, QuestionsV
 			Communicator.mediator.trigger("PATHFINDER:START");
 
 			// get JSON & initialize QuestionsView with it
-			$.when($.getJSON("questions.json")).done(_.bind(this.loadQuestions, this));
+			$.when($.getJSON("data.json")).done(_.bind(this.loadQuestions, this));
 			Communicator.reqres.setHandler("jsonData", _.bind(this.getJSONData, this));
 
 			this.projectsView = new ProjectsView();
