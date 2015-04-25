@@ -1,6 +1,6 @@
 {{text}}
 
 <div class="answer">
-	<button class="btn btn-inverse">Ja</button>
-	<button class="btn">Nein</button>
+	<button class="btn{{#if answerYes}} btn-inverse{{/if}}"{{#if answer}} disabled="disabled"{{/if}}>Ja</button>
+	<button class="btn{{#if answerNo}} btn-inverse{{/if}}"{{#if answer}} disabled="disabled"{{/if}}>Nein</button>
 </div>

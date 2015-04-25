@@ -16,7 +16,8 @@ function( Backbone, Labels, _ ) {
 		defaults: {
 			text: null,
 			labels: [],
-			active: false
+			active: false,
+			answer: null
 		},
 
 		parse: function (data, options) {
