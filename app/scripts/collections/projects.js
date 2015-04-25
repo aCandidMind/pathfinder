@@ -15,8 +15,8 @@ function( Backbone, Communicator, Project ) {
 		model: Project,
 
 		initialize: function(models, options) {
-			var jsonData = Communicator.reqres.request('jsonData');
-			if (!_.isEmpty(options.fromLabels)) {
+			if (options && !_.isEmpty(options.fromLabels)) {
+				var jsonData = Communicator.reqres.request('jsonData');
 				var projects = [];
 				_.each(jsonData.projects, function (attrs) {
 					var labelIntersection = _.intersection(attrs.labels, options.fromLabels);
