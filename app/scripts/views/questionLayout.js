@@ -20,7 +20,7 @@ function( Backbone, Communicator, Projects, ProjectsView, QuestionView, Question
 		},
 
 		onShow: function() {
-			var projects = new Projects();
+			var projects = null;
 			if(!_.isEmpty(this.model.get('answer'))) {
 				var labels = this.model.get('labels').pluck('id');
 				projects = new Projects(null, {fromLabels: labels});

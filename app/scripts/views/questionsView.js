@@ -23,7 +23,9 @@ function( Backbone, Communicator, QuestionLayout, Holder ){
 		onQuestionAnswered: function(question) {
 			var index = this.collection.indexOf(question);
 			var nextQuestion = this.collection.at(index + 1);
-			nextQuestion.set('active', true);
+			if (nextQuestion) {
+				nextQuestion.set('active', true);
+			}
 			this.render();
 		},
 
