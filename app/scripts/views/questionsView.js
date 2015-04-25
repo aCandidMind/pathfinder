@@ -1,8 +1,7 @@
 define([
 	'backbone',
 	'communicator',
-	'views/questionLayout',
-	'holderjs'
+	'views/questionLayout'
 ],
 function( Backbone, Communicator, QuestionLayout, Holder ){
     'use strict';
@@ -27,10 +26,6 @@ function( Backbone, Communicator, QuestionLayout, Holder ){
 				nextQuestion.set('active', true);
 			}
 			this.render();
-		},
-
-		onRender: function() {
-			Holder.run();
 		}
 	});
 });
