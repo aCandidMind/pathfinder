@@ -4,6 +4,9 @@ var mountFolder = function (connect, dir) {
     return connect.static(require('path').resolve(dir));
 };
 
+// Project configuration.
+var pkg = require('./package.json');
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -273,6 +276,22 @@ module.exports = function (grunt) {
                 },
                 files: {
                     '.tmp/scripts/templates.js': ['templates/**/*.hbs']
+                }
+            }
+        },
+
+        buildcontrol: {
+            options: {
+                dir: 'dist',
+                commit: true,
+                push: true,
+                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+            },
+            heroku: {
+                options: {
+                    remote: 'git@heroku.com:project-y-pathfinder.git',
+                    branch: 'master',
+                    tag: pkg.version
                 }
             }
         }
