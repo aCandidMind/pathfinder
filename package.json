@@ -1,7 +1,15 @@
 {
   "name": "projecty-pathfinder",
-  "repository": "https://github.com/aCandidMind/pathfinder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aCandidMind/pathfinder.git"
+  },
   "version": "0.0.1",
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "grunt test",
+    "postinstall": "bower install && grunt build"
+  },
   "dependencies": {
     "express": "~3.2.4",
     "request": "~2.21.0",
@@ -39,5 +47,19 @@
   },
   "engines": {
     "node": ">=0.8.0"
-  }
+  },
+  "description": "If you answer the matching questions you get to see choices that have labels matching your answers.",
+  "bugs": {
+    "url": "https://github.com/aCandidMind/pathfinder/issues"
+  },
+  "homepage": "https://github.com/aCandidMind/pathfinder",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "interest matching",
+  ],
+  "author": "Bogomir Engel <opensource@candidminds.com>",
+  "license": "GNU GPLv3"
 }
