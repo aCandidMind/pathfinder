@@ -16,7 +16,7 @@ app.configure(function(){
     app.set('port', process.env.PORT || 3000);
 
     app.set('view engine', 'handlebars');
-    app.set('views', __dirname + '../app/scripts/views');
+    app.set('views', __dirname + 'app/scripts/views');
 });
 
 // set logging
@@ -26,22 +26,22 @@ app.use(function(req, res, next){
 });
 
 // mount static
-if (app.settings.env == "production") {
-    app.use(express.static( path.join( __dirname, '..') ));
-} else {
-    app.use(express.static( path.join( __dirname, '../app') ));
-    app.use(express.static( path.join( __dirname, '../.tmp') ));
+if (app.settings.env != "production") {
+    app.use(express.static( path.join( __dirname, 'app') ));
+    app.use(express.static( path.join( __dirname, '.tmp') ));
 
     app.use('connect-livereload');
+} else {
+    app.use(express.static( path.join( __dirname) ));
 }
 
 
 // route index.html
 app.get('/', function(req, res){
   if (app.settings.env == "production") {
-      res.sendfile( path.join( __dirname, '../index.html' ) );
+      res.sendfile( path.join( __dirname, 'index.html' ) );
   } else {
-      res.sendfile( path.join( __dirname, '../app/index.html' ) );
+      res.sendfile( path.join( __dirname, 'app/index.html' ) );
   }
 });
 

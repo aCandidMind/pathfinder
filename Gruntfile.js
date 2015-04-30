@@ -89,17 +89,17 @@ module.exports = function (grunt) {
             },
             dev: {
                 options: {
-                    script: 'server/app.js'
+                    script: 'server.js'
                 }
             },
             prod: {
                 options: {
-                    script: 'server/app.js'
+                    script: 'server.js'
                 }
             },
             test: {
                 options: {
-                    script: 'server/app.js'
+                    script: 'server.js'
                 }
             }
         },
@@ -262,7 +262,7 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        src: 'server/app.js',
+                        src: 'server.js',
                         dest: '<%= yeoman.dist %>'
                     }
                 ]
