@@ -26,18 +26,26 @@ app.use(function(req, res, next){
 });
 
 // mount static
-app.use(express.static( path.join( __dirname, '../app') ));
-app.use(express.static( path.join( __dirname, '../.tmp') ));
+if (app.settings.env == "production") {
+    app.use(express.static( path.join( __dirname, '..') ));
+} else {
+    app.use(express.static( path.join( __dirname, '../app') ));
+    app.use(express.static( path.join( __dirname, '../.tmp') ));
+}
 
 
 // route index.html
 app.get('/', function(req, res){
-  res.sendfile( path.join( __dirname, '../app/index.html' ) );
+  if (app.settings.env == "production") {
+      res.sendfile( path.join( __dirname, '../index.html' ) );
+  } else {
+      res.sendfile( path.join( __dirname, '../app/index.html' ) );
+  }
 });
 
 // start server
 http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express App started!');
+    console.log('Express App started in env', app.settings.env);
 });
 
 
