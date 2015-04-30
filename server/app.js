@@ -31,6 +31,8 @@ if (app.settings.env == "production") {
 } else {
     app.use(express.static( path.join( __dirname, '../app') ));
     app.use(express.static( path.join( __dirname, '../.tmp') ));
+
+    app.use('connect-livereload');
 }
 
 
