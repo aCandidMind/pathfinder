@@ -298,8 +298,7 @@ module.exports = function (grunt) {
             heroku: {
                 options: {
                     remote: 'git@heroku.com:project-y-pathfinder.git',
-                    remoteBranch: 'master',
-                    branch: 'heroku',
+                    branch: 'master',
                     tag: pkg.version
                 }
             }
