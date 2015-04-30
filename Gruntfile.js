@@ -246,18 +246,26 @@ module.exports = function (grunt) {
 
         copy: {
             dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,txt}',
-                        '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
-                        'bower_components/requirejs/require.js'
-                    ]
-                }]
+                files: [
+                    {
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= yeoman.app %>',
+                        dest: '<%= yeoman.dist %>',
+                        src: [
+                            '*.{ico,txt}',
+                            '.htaccess',
+                            'images/{,*/}*.{webp,gif,svg}',
+                            'bower_components/requirejs/require.js',
+                            'data.json'
+                        ]
+                    },
+                    {
+                        expand: true,
+                        src: 'server/app.js',
+                        dest: '<%= yeoman.dist %>'
+                    }
+                ]
             }
         },
 
