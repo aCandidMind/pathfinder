@@ -30,7 +30,8 @@ if (app.settings.env != "production") {
     app.use(express.static( path.join( __dirname, 'app') ));
     app.use(express.static( path.join( __dirname, '.tmp') ));
 
-    app.use('connect-livereload');
+    var connectLivereload = require('connect-livereload');
+    app.use(connectLivereload);
 } else {
     app.use(express.static( path.join( __dirname) ));
 }
